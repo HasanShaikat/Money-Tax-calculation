@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Calculator</title>
+    <!-- TailWind  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .img{
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <section class="container mx-auto">
+        <h1 class="my-10 text-center text-lime-500 text-3xl font-bold">Money Calculator</h1>
+        <div class="grid md:grid-cols-2">
+            <div>
+                <img src="Image/money.jpg" alt="" class="img">
+            </div>
+            <div class="text-center shadow hover:shadow-xl mt-12">
+                <div>
+                    <h3 class="font-bold text-xl">Income</h3>
+                    <label for="">Income &brvbar; </label>
+                    <input type="text" class="bg-gray-300 py-1 pl-4 pr-8 outline-0 my-4" id="incomeInput">
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl mb-3">Expenses</h3>
+                    <div>
+                        <label for="">Food &brvbar; </label>
+                        <input type="text" id="foodInput" class="bg-gray-300 py-1 pl-4 pr-8 outline-0 my-2">
+                    </div>
+                    <div class="my-4">
+                        <label>Rent &brvbar; </label>
+                        <input type="text" id="rentInput" class="bg-gray-300 py-1 pl-4 pr-8 outline-0">
+                    </div>
+                    <div>
+                        <label>Clothes &brvbar; </label>
+                        <input type="text" id="clothInput" class="bg-gray-300 py-1 pl-4 pr-8 outline-0 my-2">
+                    </div>
+                </div>
+                <button class="bg-blue-600 text-white font-bold uppercase py-2 px-12 mt-5" id="calculate">Calculate</button>
+                <h1 class="my-2">Total Expenses : <span id="totalExpenses"></span> </h1>
+                <h2>Balance : <span id="balance"></span> </h2>
+                <div class="my-5">
+                    <h3>Save : <input class="w-14 bg-gray-300 mr-4 px-2 outline-0 py-1" type="text" id="saveInput"> % <button class="bg-blue-600 text-white font-bold uppercase py-2 px-12 ml-4" id="saveButton">Save</button> </h3>
+                </div>
+                <div>
+                    <h1 class="my-2">Saving Amount : <span id="savingAmount"></span> </h1>
+                <h2>Remaining Balance : <span id="remainingBalance"></span> </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="JS/money.js"></script>
+</body>
+</html>
