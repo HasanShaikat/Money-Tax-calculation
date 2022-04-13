@@ -1,70 +1,78 @@
-/* function getInput(input){
-    const incomeInput = document.getElementById(input);
-    const incomeInputValue = incomeInput.value;
-    const incomeInputAmount = parseInt(incomeInputValue);
-    incomeInput.value = '';
+function getInput(input){
+    const foodInput = document.getElementById(input);
+    const foodInputValue = foodInput.value;
+    const foodInputAmount = parseFloat(foodInputValue);
 
-    return incomeInputAmount;
-} */
+    foodInput.value = '';
+
+    return foodInputAmount;
+}
+
+function getExpenses(expenses){
+    const totalExpenses = document.getElementById(expenses);
+    const totalExpensesText = totalExpenses.innerText;
+    const totalExpensesAmount = parseFloat(totalExpensesText);
+
+    return totalExpensesAmount;
+}
+
 document.getElementById('calculate').addEventListener('click', function (){
     const incomeInput = document.getElementById('incomeInput');
     const incomeInputValue = incomeInput.value;
     const incomeInputAmount = parseInt(incomeInputValue);
-    // incomeInput.value = '';
 
-    const foodInput = document.getElementById('foodInput');
-    const foodInputValue = foodInput.value;
-    const foodInputAmount = parseInt(foodInputValue);
-    foodInput.value = '';
+    let food = getInput('foodInput');
+    
 
-    const rentInput = document.getElementById('rentInput');
-    const rentInputValue = rentInput.value;
-    const rentInputAmount = parseInt(rentInputValue);
-    rentInput.value = '';
+    let rent = getInput('rentInput');
+    
 
-    const clothInput = document.getElementById('clothInput');
-    const clothInputValue = clothInput.value;
-    const clothInputAmount = parseInt(clothInputValue);
-    clothInput.value = '';
+    let cloth = getInput('clothInput');
+   
 
     // expenses and balance
-    const totalExpenses = document.getElementById('totalExpenses');
-    const totalExpensesText = totalExpenses.innerText;
-    const totalExpensesAmount = totalExpensesText;
+    getExpenses('totalExpenses');
+
+    // let balance = getExpenses('balance').innerText;
+   
+    //total Expenses
+    let inputSum = food + rent + cloth;
+    totalExpenses.innerText = inputSum;
 
     const balance = document.getElementById('balance');
     const balanceText = balance.innerText;
-    const balanceAmount = balanceText;
-   
-    //total Expenses
-    let inputSum = foodInputAmount + rentInputAmount + clothInputAmount;
-    totalExpenses.innerText = inputSum;
+    const balanceAmount = parseInt(balanceText);
 
     // Balance
     let totalAmount = incomeInputAmount - inputSum;
     balance.innerText = totalAmount;
 })
 
-document.getElementById('saveButton').addEventListener('click', function (){
-    // saving input;
-    const saveInput = document.getElementById('saveInput');
+function getSave(saving){
+    const saveInput = document.getElementById(saving);
     const saveInputValue = saveInput.value;
-    const saveInputAmount = parseInt(saveInputValue);
+    const saveInputAmount = parseFloat(saveInputValue);
     saveInput.value = '';
 
-    // saving balance
-    const percenteg = incomeInput.value / saveInputAmount;
-    
+    return saveInputAmount;
+}
+
+document.getElementById('saveButton').addEventListener('click', function (){
+    // saving input;
+    let save = getSave('saveInput')
+
     // Saving Amount
     const savingAmount = document.getElementById('savingAmount');
     const savingAmountText = savingAmount.innerText;
-    const savingTotalAmount = parseInt(savingAmountText);
+    const savingTotalAmount = parseFloat(savingAmountText);
 
     // Remaining Balance
     const remainingBalance = document.getElementById('remainingBalance');
     const remainingBalanceText = remainingBalance.innerText;
-    const remainingBalanceAmount = parseInt(remainingBalanceText);
+    const remainingBalanceAmount = parseFloat(remainingBalanceText);
 
+    // saving balance
+    const percenteg = incomeInput.value / save;
     savingAmount.innerText = percenteg;
 
     const remainingTotalBalance = balance.innerText - savingAmount.innerText;
